@@ -40,5 +40,4 @@ func TodayIndexFunc(ctx dotweb.Context) error {
 	return ctx.WriteJson(dto.BaseResponse{
 		Res: yiji,
 	})
-
 }
