@@ -1,6 +1,8 @@
 package handlers
 
-import "github.com/devfeel/dotweb"
+import (
+	"github.com/devfeel/dotweb"
+)
 
 /**
 
@@ -23,5 +25,9 @@ func InitRoute(server *dotweb.HttpServer) {
 	// 1、手机号码分析类
 	gPhoneNumber := apiV1Group.Group("/baxing/phoneNumber")
 	gPhoneNumber.GET("/:phoneNumber", phoneNumberIndex)
+
+	// 2、黄历类
+	gCalendar := apiV1Group.Group("/calendar")
+	gCalendar.GET("/today", TodayIndexFunc)  //今日宜忌
 
 }
