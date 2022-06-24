@@ -25,7 +25,7 @@ func ToFullStringPretty(lunar *calendar.Lunar) string {
 	s += lunar.GetTimeZhi()
 	s += "("
 	s += lunar.GetTimeShengXiao()
-	s += ")时 \n纳音["
+	s += ")时 <\\br>纳音["
 	s += lunar.GetYearNaYin()
 	s += " "
 	s += lunar.GetMonthNaYin()
@@ -34,7 +34,7 @@ func ToFullStringPretty(lunar *calendar.Lunar) string {
 	s += " "
 	s += lunar.GetTimeNaYin()
 	s += "] 星期"
-	s += lunar.GetWeekInChinese() + "\n"
+	s += lunar.GetWeekInChinese() + "<\\br>"
 	for i := lunar.GetFestivals().Front(); i != nil; i = i.Next() {
 		s += " ("
 		s += i.Value.(string)
@@ -90,10 +90,10 @@ func ToFullStringPretty(lunar *calendar.Lunar) string {
 	s += "] 煞["
 	s += lunar.GetDaySha()
 	s += "]"
-	s = strings.Replace(s, " [", "\r\n [", -1)
-	s = strings.Replace(s, "] ", "]\r\n", -1)
-	s = strings.Replace(s, " (", "\r\n (", -1)
-	s = strings.Replace(s, ") ", ")\r\n", -1)
+	s = strings.Replace(s, " [", "<\\br> [", -1)
+	s = strings.Replace(s, "] ", "]<\\br>", -1)
+	s = strings.Replace(s, " (", "<\\br> (", -1)
+	s = strings.Replace(s, ") ", ")<\\br>", -1)
 	s = strings.Replace(s, "[", " [", -1)
 	s = strings.Replace(s, "]", "] ", -1)
 	return s
