@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/6tail/lunar-go/calendar"
+	"github.com/EriconYu/BaXingNengLiang/dto"
 	"github.com/EriconYu/BaXingNengLiang/util"
 	"github.com/devfeel/dotweb"
 )
@@ -36,9 +37,8 @@ func TodayIndexFunc(ctx dotweb.Context) error {
 		yiji.TimeJi = append(yiji.TimeJi, e.Value)
 	}
 	log.Println(yiji)
-	//return ctx.WriteJson(dto.BaseResponse{
-	//	Res: yiji,
-	//})
-	return ctx.WriteString(yiji.FullString)
+	return ctx.WriteJson(dto.BaseResponse{
+		Res: yiji,
+	})
 
 }
