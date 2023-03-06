@@ -29,6 +29,14 @@ func phoneNumberIndex(ctx dotweb.Context) error {
 	log.Println("phoneNumber is ", phoneNumber)
 
 	// 接下来开始分析
-	baseResp.Reason, baseResp.Res = service.ParsePhoneNumberByBaXing(phoneNumber)
+	baXingArray, baXingContent := service.ParsePhoneNumberByBaXing(phoneNumber)
+	MingYunShu_81, MingYunShu_9Xing := service.ComputeMingYunShu(phoneNumber)
+	baseResp.Reason = baXingArray
+	result := make(map[string]string)
+	result["baXingContent"] = baXingContent
+	result["MingYunShu_81"] = MingYunShu_81
+	result["MingYunShu_9Xing"] = MingYunShu_9Xing
+	baseResp.Res = result
+
 	return ctx.WriteJson(baseResp)
 }
