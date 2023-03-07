@@ -30,4 +30,9 @@ func InitRoute(server *dotweb.HttpServer) {
 	gCalendar := apiV1Group.Group("/calendar")
 	gCalendar.GET("/today", TodayIndexFunc)  //今日宜忌
 
+	// 3、抽签类
+	gQian := apiV1Group.Group("/qian")
+	gQian.GET("/64gua/random" , Random64GuaFunc)
+	gQian.GET("/64gua/name/:name" , QueryName64GuaFunc)
+	gQian.GET("/64gua/order/:order" , QueryOrder64GuaFunc)
 }
