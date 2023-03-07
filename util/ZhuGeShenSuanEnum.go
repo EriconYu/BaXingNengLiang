@@ -1,9 +1,9 @@
 package util
 
-var ZhuGeShenQian map[string]interface{}
+var ZhuGeShenSuan map[string]interface{}
 
 func init() {
-	ZhuGeShenQian = map[string]interface{}{
+	ZhuGeShenSuan = map[string]interface{}{
 		"1": map[string]interface{}{
 			"id":       1,
 			"qian":     "诸葛神算第一签",

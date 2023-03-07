@@ -16,20 +16,20 @@ import (
  * @Creator  Ericon Freeman
  * @Date  2023/3/7 5:36 下午
  */
-func RandomZhuGeShenQianFunc(ctx dotweb.Context) error {
+func RandomZhuGeShenSuanFunc(ctx dotweb.Context) error {
 
 	qianOrder := time.Now().UnixNano() % 64
 	if qianOrder == 0 {
 		qianOrder = 64
 	}
 	qianOrderString := strconv.Itoa(int(qianOrder))
-	zhuGeShenQian := util.ZhuGeShenQian[qianOrderString]
+	zhuGeShenSuan := util.ZhuGeShenSuan[qianOrderString]
 	var baseResp dto.BaseResponse
-	baseResp.Msg = "抽签完成，恭喜您抽得" + zhuGeShenQian.(map[string]interface{})["qian"].(string)
+	baseResp.Msg = "抽签完成，恭喜您抽得" + zhuGeShenSuan.(map[string]interface{})["qian"].(string)
 	baseResp.Res = map[string]interface{}{
 		"order": qianOrder,
-		"name":  zhuGeShenQian.(map[string]interface{})["qian"].(string),
-		"qian":  zhuGeShenQian,
+		"name":  zhuGeShenSuan.(map[string]interface{})["qian"].(string),
+		"qian":  zhuGeShenSuan,
 	}
 	return ctx.WriteJson(baseResp)
 }
@@ -41,16 +41,16 @@ func RandomZhuGeShenQianFunc(ctx dotweb.Context) error {
  * @Creator  Ericon Freeman
  * @Date  2023/3/7 5:36 下午
  */
-func QueryOrderZhuGeShenQianFunc(ctx dotweb.Context) error {
+func QueryOrderZhuGeShenSuanFunc(ctx dotweb.Context) error {
 
 	qianOrder := ctx.GetRouterName("order")
-	zhuGeShenQian := util.ZhuGeShenQian[qianOrder]
+	zhuGeShenSuan := util.ZhuGeShenSuan[qianOrder]
 	var baseResp dto.BaseResponse
-	baseResp.Msg = "抽签完成，恭喜您抽得" + zhuGeShenQian.(map[string]interface{})["qian"].(string)
+	baseResp.Msg = "抽签完成，恭喜您抽得" + zhuGeShenSuan.(map[string]interface{})["qian"].(string)
 	baseResp.Res = map[string]interface{}{
 		"order": qianOrder,
-		"name":  zhuGeShenQian.(map[string]interface{})["qian"].(string),
-		"qian":  zhuGeShenQian,
+		"name":  zhuGeShenSuan.(map[string]interface{})["qian"].(string),
+		"qian":  zhuGeShenSuan,
 	}
 	return ctx.WriteJson(baseResp)
 

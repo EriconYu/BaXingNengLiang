@@ -41,6 +41,6 @@ func InitRoute(server *dotweb.HttpServer) {
 	gQian.GET("/guanYinLingQian/order/:order", QueryOrderGuanYinLingQianFunc)
 
 	// 5、抽签类 诸葛神签
-	gQian.GET("/zhuGeShenQian/random", RandomZhuGeShenQianFunc)
-	gQian.GET("/zhuGeShenQian/order/:order", QueryOrderZhuGeShenQianFunc)
+	gQian.GET("/zhuGeShenSuan/random", RandomZhuGeShenSuanFunc)
+	gQian.GET("/zhuGeShenSuan/order/:order", QueryOrderZhuGeShenSuanFunc)
 }
