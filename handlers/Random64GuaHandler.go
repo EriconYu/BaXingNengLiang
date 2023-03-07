@@ -28,11 +28,12 @@ func Random64GuaFunc(ctx dotweb.Context) error {
 	yaoci := util.Gua64_YaoCi[guaOrderString]
 	jiexi := util.Gua64_JieXi[guaOrderString]
 	var baseResp dto.BaseResponse
+	baseResp.Msg = "抽签完成，恭喜您抽得" + yaoci.(map[string]interface{})["Name"].(string) + "卦"
 	baseResp.Res = map[string]interface{}{
 		"order": guaOrder,
 		"name":  yaoci.(map[string]interface{})["Name"],
-		"yaoci": yaoci,
-		"jiexi": jiexi,
+		"yaoci": yaoci.(map[string]interface{})["Content"],
+		"jiexi": jiexi.(map[string]interface{})["Content"],
 	}
 	return ctx.WriteJson(baseResp)
 }
@@ -54,11 +55,12 @@ func QueryName64GuaFunc(ctx dotweb.Context) error {
 			log.Println("find the Gua ： ", name)
 			yaoci := util.Gua64_YaoCi[order]
 			jiexi := util.Gua64_JieXi[order]
+			baseResp.Msg = "抽签完成，恭喜您抽得" + yaoci.(map[string]interface{})["Name"].(string) + "卦"
 			baseResp.Res = map[string]interface{}{
 				"order": order,
 				"name":  yaoci.(map[string]interface{})["Name"],
-				"yaoci": yaoci,
-				"jiexi": jiexi,
+				"yaoci": yaoci.(map[string]interface{})["Content"],
+				"jiexi": jiexi.(map[string]interface{})["Content"],
 			}
 			return ctx.WriteJson(baseResp)
 		}
@@ -83,11 +85,12 @@ func QueryOrder64GuaFunc(ctx dotweb.Context) error {
 	var baseResp dto.BaseResponse
 	yaoci := util.Gua64_YaoCi[order]
 	jiexi := util.Gua64_JieXi[order]
+	baseResp.Msg = "抽签完成，恭喜您抽得" + yaoci.(map[string]interface{})["Name"].(string) + "卦"
 	baseResp.Res = map[string]interface{}{
 		"order": order,
 		"name":  yaoci.(map[string]interface{})["Name"],
-		"yaoci": yaoci,
-		"jiexi": jiexi,
+		"yaoci": yaoci.(map[string]interface{})["Content"],
+		"jiexi": jiexi.(map[string]interface{})["Content"],
 	}
 	return ctx.WriteJson(baseResp)
 }

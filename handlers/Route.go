@@ -28,11 +28,19 @@ func InitRoute(server *dotweb.HttpServer) {
 
 	// 2、黄历类
 	gCalendar := apiV1Group.Group("/calendar")
-	gCalendar.GET("/today", TodayIndexFunc)  //今日宜忌
+	gCalendar.GET("/today", TodayIndexFunc) //今日宜忌
 
-	// 3、抽签类
+	// 3、抽签类 64gua
 	gQian := apiV1Group.Group("/qian")
-	gQian.GET("/64gua/random" , Random64GuaFunc)
-	gQian.GET("/64gua/name/:name" , QueryName64GuaFunc)
-	gQian.GET("/64gua/order/:order" , QueryOrder64GuaFunc)
+	gQian.GET("/64gua/random", Random64GuaFunc)
+	gQian.GET("/64gua/name/:name", QueryName64GuaFunc)
+	gQian.GET("/64gua/order/:order", QueryOrder64GuaFunc)
+
+	// 4、抽签类 观音灵签
+	gQian.GET("/guanYinLingQian/random", RandomGuanYinLingQianFunc)
+	gQian.GET("/guanYinLingQian/order/:order", QueryOrderGuanYinLingQianFunc)
+
+	// 5、抽签类 诸葛神签
+	gQian.GET("/zhuGeShenQian/random", RandomZhuGeShenQianFunc)
+	gQian.GET("/zhuGeShenQian/order/:order", QueryOrderZhuGeShenQianFunc)
 }
