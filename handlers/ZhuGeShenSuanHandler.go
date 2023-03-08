@@ -18,9 +18,9 @@ import (
  */
 func RandomZhuGeShenSuanFunc(ctx dotweb.Context) error {
 
-	qianOrder := time.Now().UnixNano() % 64
+	qianOrder := time.Now().UnixNano() % 384
 	if qianOrder == 0 {
-		qianOrder = 64
+		qianOrder = 384
 	}
 	qianOrderString := strconv.Itoa(int(qianOrder))
 	zhuGeShenSuan := util.ZhuGeShenSuan[qianOrderString]

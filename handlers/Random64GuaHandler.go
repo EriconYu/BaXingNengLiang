@@ -34,6 +34,7 @@ func Random64GuaFunc(ctx dotweb.Context) error {
 		"name":  yaoci.(map[string]interface{})["Name"],
 		"yaoci": yaoci.(map[string]interface{})["Content"],
 		"jiexi": jiexi.(map[string]interface{})["Content"],
+		"imgURL": jiexi.(map[string]interface{})["ImgURL"],
 	}
 	return ctx.WriteJson(baseResp)
 }
@@ -57,10 +58,11 @@ func QueryName64GuaFunc(ctx dotweb.Context) error {
 			jiexi := util.Gua64_JieXi[order]
 			baseResp.Msg = "抽签完成，恭喜您抽得" + yaoci.(map[string]interface{})["Name"].(string) + "卦"
 			baseResp.Res = map[string]interface{}{
-				"order": order,
-				"name":  yaoci.(map[string]interface{})["Name"],
-				"yaoci": yaoci.(map[string]interface{})["Content"],
-				"jiexi": jiexi.(map[string]interface{})["Content"],
+				"order":  order,
+				"name":   yaoci.(map[string]interface{})["Name"],
+				"yaoci":  yaoci.(map[string]interface{})["Content"],
+				"jiexi":  jiexi.(map[string]interface{})["Content"],
+				"imgURL": jiexi.(map[string]interface{})["ImgURL"],
 			}
 			return ctx.WriteJson(baseResp)
 		}
@@ -87,10 +89,11 @@ func QueryOrder64GuaFunc(ctx dotweb.Context) error {
 	jiexi := util.Gua64_JieXi[order]
 	baseResp.Msg = "抽签完成，恭喜您抽得" + yaoci.(map[string]interface{})["Name"].(string) + "卦"
 	baseResp.Res = map[string]interface{}{
-		"order": order,
-		"name":  yaoci.(map[string]interface{})["Name"],
-		"yaoci": yaoci.(map[string]interface{})["Content"],
-		"jiexi": jiexi.(map[string]interface{})["Content"],
+		"order":  order,
+		"name":   yaoci.(map[string]interface{})["Name"],
+		"yaoci":  yaoci.(map[string]interface{})["Content"],
+		"jiexi":  jiexi.(map[string]interface{})["Content"],
+		"imgURL": jiexi.(map[string]interface{})["ImgURL"],
 	}
 	return ctx.WriteJson(baseResp)
 }
